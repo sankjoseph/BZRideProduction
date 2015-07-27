@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\MateriaMedica-master\app\build\intermediates\exploded-aar\com.android.support\support-v13\21.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="0c0c19759e5868604a3b4c2c0074ee9404d73c76">
+        <dex dex="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\MateriaMedica-master\app\build\intermediates\pre-dexed\debug\classes-1bfaa4d3e78e65ca3e9fb115aca46d43f4952cac.jar" />
+    </item>
+    <item
+        jar="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\MateriaMedica-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="686344a780033e4ba22b926cd225f8d4941247e6">
+        <dex dex="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\MateriaMedica-master\app\build\intermediates\pre-dexed\debug\classes-c91dee1f8061437b3ac02672b5f32ae1b9c2f348.jar" />
+    </item>
+    <item
+        jar="C:\Users\santhosh.joseph\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.0\support-annotations-21.0.0.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e">
+        <dex dex="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\MateriaMedica-master\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.0-b36d53c634a3f21bda9155e96619b9463e7681a9.jar" />
+    </item>
+    <item
+        jar="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\MateriaMedica-master\app\build\intermediates\exploded-aar\com.android.support\support-v13\21.0.0\libs\internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="5a8e01742aee890c56fe638ea7c921b91a3fdc62">
+        <dex dex="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\MateriaMedica-master\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-95eaded674fa1056dfb3814299f6aad14e2e8978.jar" />
+    </item>
+    <item
+        jar="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\MateriaMedica-master\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.0\libs\internal_impl-21.0.0.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0">
+        <dex dex="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\MateriaMedica-master\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.0-641fcab68deae641d2d691f9382fab6946317221.jar" />
+    </item>
+
+</items>
