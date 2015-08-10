@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <!-- Product-->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pineapple"
+        android:textColor="#040404"
+        android:typeface="sans"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/amount"
+        android:textSize="15dip"
+        android:textStyle="bold"/>
+
+    <!-- Supplier -->
+    <TextView
+        android:id="@+id/provider"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#343434"
+        android:textSize="15dip"
+        android:text="Binish,Mala,Thrissur"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/amount"
+        android:layout_below="@+id/title"
+         />
+
+    <TextView
+        android:id="@+id/des"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#343434"
+        android:textSize="15dip"
+        android:text="I have good quality"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/provider"
+        android:layout_toLeftOf="@+id/amount"
+        />
+
+
+    <!-- Description -->
+    <TextView
+        android:id="@+id/amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/title"
+        android:gravity="right"
+        android:text="RS 160"
+        android:layout_marginRight="5dip"
+        android:textSize="15dip"
+        android:textColor="@color/LimeGreen"
+        android:textStyle="bold"/>
+    <TextView
+        android:id="@+id/avlqty"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/title"
+        android:gravity="right"
+        android:text="Avl. Qty 60 Kg"
+        android:layout_marginRight="5dip"
+        android:textSize="15sp"
+        android:textColor="@color/LimeGreen"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/timerec"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/avlqty"
+        android:gravity="right"
+        android:text="Time"
+        android:layout_marginRight="5dip"
+        android:textSize="15dip"
+        android:textColor="@color/LimeGreen"
+        android:textStyle="bold"/>
+
+</RelativeLayout>

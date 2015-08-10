@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="0,1,2" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"  >
+
+        <ListView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:id="@+id/plistView" />
+
+        <WebView
+            android:id="@+id/webViewHome"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:layout_span="3" />
+
+    </TableRow>
+
+    <TableRow
+        android:id="@+id/tableRow2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" >
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_column="0"
+            android:text="Search"
+            android:background="@color/LimeGreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/search"
+            android:height="70dp"
+            android:textColor="#ffffffff" />
+        <Button
+            android:id="@+id/btnNotify"
+            android:layout_column="1"
+            android:text="Notifications"
+            android:background="@color/LimeGreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/notification"
+            android:height="70dp"
+            android:textColor="#ffffffff" />
+        <Button
+            android:id="@+id/btnAllproducts"
+            android:layout_column="2"
+            android:text="All Products"
+            android:background="@color/LimeGreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:drawableTop="@drawable/products"
+            android:height="70dp"
+            android:textColor="#ffffffff" />
+        />
+
+    </TableRow>
+</TableLayout>
