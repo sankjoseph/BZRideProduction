@@ -1,66 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:stretchColumns="0,1,2" >
+    android:background="@android:color/white">
 
-    <TableRow
-        android:id="@+id/tableRow1"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="1"  >
+    <LinearLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:weightSum="0.9">
 
-        <ListView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:id="@+id/plistView" />
-
-        <WebView
-            android:id="@+id/webViewHome"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:layout_span="3" />
-
-    </TableRow>
-
-    <TableRow
-        android:id="@+id/tableRow2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom" >
-
-        <Button
+        <TextView
             android:id="@+id/btnSearch"
-            android:layout_column="0"
             android:text="Search"
             android:background="@color/LimeGreen"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:drawableTop="@drawable/search"
-            android:height="70dp"
-            android:textColor="#ffffffff" />
-        <Button
-            android:id="@+id/btnNotify"
-            android:layout_column="1"
-            android:text="Notifications"
-            android:background="@color/LimeGreen"
-            android:layout_width="match_parent"
+            android:textColor="#ffffffff"
+            android:layout_weight="0.3"
+            android:paddingTop="10dp"
+            android:gravity="center_horizontal"
+            android:drawablePadding="8dp"
+            android:textAllCaps="true"/>
+
+        <RelativeLayout
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:drawableTop="@drawable/notification"
-            android:height="70dp"
-            android:textColor="#ffffffff" />
-        <Button
+            android:layout_weight="0.3">
+            <TextView
+                android:id="@+id/btnNotify"
+                android:text="Notifications"
+                android:background="@color/LimeGreen"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:drawableTop="@drawable/notification"
+                android:textColor="#ffffffff"
+                android:paddingTop="10dp"
+                android:gravity="center_horizontal"
+                android:drawablePadding="8dp"
+                android:textAllCaps="true"/>
+            <TextView
+                android:id="@+id/notification_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10"
+                android:background="@drawable/shape_notification_badge"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="24dp"
+                android:padding="4dp"
+                android:textColor="@android:color/white"
+                android:visibility="gone"/>
+        </RelativeLayout>
+
+        <TextView
             android:id="@+id/btnAllproducts"
-            android:layout_column="2"
             android:text="All Products"
             android:background="@color/LimeGreen"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
             android:drawableTop="@drawable/products"
-            android:height="70dp"
-            android:textColor="#ffffffff" />
-        />
+            android:layout_weight="0.3"
+            android:textColor="#ffffffff"
+            android:paddingTop="10dp"
+            android:gravity="center_horizontal"
+            android:drawablePadding="8dp"
+            android:textAllCaps="true"/>
+    </LinearLayout>
 
-    </TableRow>
-</TableLayout>
+    <ListView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/plistView"
+        android:layout_above="@id/tabs"
+        android:visibility="gone"/>
+
+    <WebView
+        android:id="@+id/webViewHome"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/tabs"
+        android:visibility="visible"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+</RelativeLayout>

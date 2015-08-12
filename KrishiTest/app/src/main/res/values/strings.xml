@@ -1,8 +1,9 @@
 <resources>
-    <string name="app_name">KrishiTest</string>
+    <string name="app_name">EnteKrishi</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_home_tab">HomeTab</string>
     <string name="title_activity_tab1">Tab1Activity</string>
+    <string name="rupee_symbol">\u20B9 </string>
 </resources>

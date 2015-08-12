@@ -1,86 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="horizontal"
-    android:padding="5dip" >
-
-    <!-- Product-->
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pineapple"
-        android:textColor="#040404"
-        android:typeface="sans"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/amount"
-        android:textSize="15dip"
-        android:textStyle="bold"/>
-
-    <!-- Supplier -->
-    <TextView
-        android:id="@+id/provider"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#343434"
-        android:textSize="15dip"
-        android:text="Binish,Mala,Thrissur"
-        android:layout_alignParentLeft="true"
-        android:layout_toLeftOf="@+id/amount"
-        android:layout_below="@+id/title"
-         />
-
-    <TextView
-        android:id="@+id/des"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#343434"
-        android:textSize="15dip"
-        android:text="I have good quality"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/provider"
-        android:layout_toLeftOf="@+id/amount"
-        />
-
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    >
 
     <!-- Description -->
-    <TextView
-        android:id="@+id/amount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <LinearLayout
+        android:id="@+id/description"
+        android:layout_width="108dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@id/title"
-        android:gravity="right"
-        android:text="RS 160"
-        android:layout_marginRight="5dip"
-        android:textSize="15dip"
-        android:textColor="@color/LimeGreen"
-        android:textStyle="bold"/>
-    <TextView
-        android:id="@+id/avlqty"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/title"
-        android:gravity="right"
-        android:text="Avl. Qty 60 Kg"
-        android:layout_marginRight="5dip"
-        android:textSize="15sp"
-        android:textColor="@color/LimeGreen"
-        android:textStyle="bold"/>
+        android:background="@color/LimeGreen"
+        android:gravity="center_vertical">
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="RS 160"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"/>
 
-    <TextView
-        android:id="@+id/timerec"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/avlqty"
-        android:gravity="right"
-        android:text="Time"
-        android:layout_marginRight="5dip"
-        android:textSize="15dip"
-        android:textColor="@color/LimeGreen"
-        android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/avlqty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Avl.Qty   65 Kg"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@android:color/white"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/timerec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="Time"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/time_color"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/description"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingRight="10dp"
+        android:paddingLeft="15dp"
+        android:gravity="center_vertical">
+        <!-- Product-->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pineapple"
+            android:textColor="#040404"
+            android:typeface="sans"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textStyle="bold"
+            android:inputType="textCapSentences"/>
+
+        <!-- Supplier -->
+        <TextView
+            android:id="@+id/provider"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#343434"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Binish,Mala,Thrissur"
+            android:layout_below="@+id/title"
+            android:layout_marginTop="2dp"/>
+
+        <TextView
+            android:id="@+id/des"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#343434"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="I have good quality"
+            android:layout_marginTop="5dp"/>
+    </LinearLayout>
 
 </RelativeLayout>

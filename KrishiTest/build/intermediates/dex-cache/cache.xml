@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\KrishiTest\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\KrishiTest\app\build\intermediates\pre-dexed\debug\classes-bd0ee24f1c20285e2cf0b5d4003bf28a8a6db7cf.jar" />
+    </item>
+    <item
+        jar="C:\Users\santhosh.joseph\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.3.1\ecb6e1f8e4b0e84c4b886c2f14a1500caf309757\gson-2.3.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ecb6e1f8e4b0e84c4b886c2f14a1500caf309757">
+        <dex dex="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\KrishiTest\app\build\intermediates\pre-dexed\debug\gson-2.3.1-0fe830aadc47eab28ec25ad88da567db4f4fa86d.jar" />
+    </item>
+    <item
+        jar="C:\Users\santhosh.joseph\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.1\support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\KrishiTest\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.1-46ebfaf3ea98ccbef6be06506f4aec14d1a05f78.jar" />
+    </item>
+    <item
+        jar="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\KrishiTest\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.1\jars\libs\internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\KrishiTest\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.1-e9098a3ae448c90b800edd392b447f8702a80dcf.jar" />
+    </item>
+    <item
+        jar="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\KrishiTest\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.1\jars\classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="C:\Projects\SanthoshJosephMobCoE\trainselforg\code\KrishiTest\app\build\intermediates\pre-dexed\debug\classes-0271e54c0efcc5abaf0dba8d672091e9e30224c6.jar" />
+    </item>
+
+</items>
