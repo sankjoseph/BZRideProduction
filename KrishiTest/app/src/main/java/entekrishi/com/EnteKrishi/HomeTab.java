@@ -1,7 +1,9 @@
 package entekrishi.com.EnteKrishi;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.AdapterView;
@@ -21,7 +23,7 @@ import entekrishi.com.EnteKrishi.model.NotificationRsp;
 import entekrishi.com.EnteKrishi.model.Product;
 
 
-public class HomeTab extends ActionBarActivity implements View.OnClickListener,OnPostExecuteListener {
+public class HomeTab extends Activity implements View.OnClickListener,OnPostExecuteListener, AdapterView.OnItemClickListener {
     private WebView wv;
     private ListView prodList;
     private ProductListAdapter adapter;
@@ -50,6 +52,7 @@ public class HomeTab extends ActionBarActivity implements View.OnClickListener,O
         btn_search.setOnClickListener(this);
         btn_notifications.setOnClickListener(this);
         btn_all_products.setOnClickListener(this);
+//        prodList.setOnItemClickListener(this);
 
         // default - search
         pullNotfications();
@@ -90,6 +93,7 @@ public class HomeTab extends ActionBarActivity implements View.OnClickListener,O
                 break;
             case R.id.btnNotify:
                 isNotifyTab = true;
+                prodList.setOnItemClickListener(this);
                 pullNotfications();
                 break;
             case R.id.btnAllproducts:
@@ -99,8 +103,6 @@ public class HomeTab extends ActionBarActivity implements View.OnClickListener,O
     }
 
     private void pullNotfications() {
-        //check token expired or not
-
         RestApi api = new RestApi(this);
         api.setMessage(isNotifyTab ? "Getting latest notifications..." : null);
         api.setPostExecuteListener(this);
@@ -112,34 +114,35 @@ public class HomeTab extends ActionBarActivity implements View.OnClickListener,O
         NotificationRsp response = (NotificationRsp)model;
         if (response.msg.toString().equalsIgnoreCase(Utils.PULL_NOTIFY_SUCCESS)) {
             ArrayList<Product> productlist = response.listofProducts;
+            if (Integer.parseInt(response.unread)==0) {
+                Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_NO_NOTIFICATIONS, null);
+            }
+
             if (isNotifyTab) {
                 adapter = new ProductListAdapter(this, productlist);
                 prodList.setAdapter(adapter);
-                // Click event for single list row
-                prodList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-                    @Override
-                    public void onItemClick(AdapterView<?> adapter, View view,
-                                            int position, long id) {
-                        // String value = (String)adapter.getItemAtPosition(position);
-
-                    }
-                });
             }
-            updateCount(productlist != null ? productlist.size() : 0);
+            updateCount(response.unread);
         } else {
-            Utils.showInfoDialog(this, Utils.MSG_TITLE, response.msg, null);
+            Utils.showInfoDialog(this, Utils.MSG_TITLE, response.msg + Utils.MSG_LOGIN_AGAIN, null);
         }
     }
 
-    private void updateCount(int count) {
-        badge.setText("" + count);
-        badge.setVisibility(count != 0 ? View.VISIBLE : View.GONE);
+    private void updateCount(String count) {
+        badge.setText(count);
+        badge.setVisibility(Integer.parseInt(count) != 0 ? View.VISIBLE : View.GONE);
     }
 
 
     @Override
     public void onFailure() {
         Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_NO_INTERNET, null);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        Log.i(".EnteKrishi", "Item clicked position = " + i);
+        Product p = (Product) adapter.getItem(i);
+        startActivity(new Intent(HomeTab.this, DetailedActivity.class).putExtra("url", p.url));
     }
 }

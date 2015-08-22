@@ -6,4 +6,5 @@
     <string name="title_activity_home_tab">HomeTab</string>
     <string name="title_activity_tab1">Tab1Activity</string>
     <string name="rupee_symbol">\u20B9 </string>
+    <string name="title_activity_signup">Signup</string>
 </resources>

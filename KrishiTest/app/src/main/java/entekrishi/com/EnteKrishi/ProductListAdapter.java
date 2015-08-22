@@ -17,7 +17,7 @@ import entekrishi.com.EnteKrishi.model.Product;
 /**
  * Created by Santhosh.Joseph on 09-08-2015.
  */
-public   class ProductListAdapter extends BaseAdapter {
+public class ProductListAdapter extends BaseAdapter {
     private Activity activity;
     private ArrayList<Product> data;
     private static LayoutInflater inflater=null;
@@ -26,17 +26,20 @@ public   class ProductListAdapter extends BaseAdapter {
         data=d;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+    @Override
     public int getCount() {
         return data.size();
     }
 
+    @Override
     public Object getItem(int position) {
-        return position;
+        return data.get(position);
     }
-
+    @Override
     public long getItemId(int position) {
         return position;
     }
+    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View vi=convertView;
         if(convertView==null)

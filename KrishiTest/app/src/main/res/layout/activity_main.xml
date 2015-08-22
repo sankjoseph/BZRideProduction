@@ -81,5 +81,23 @@
         android:textColor="@android:color/white"
         android:background="@color/LimeGreen"
         android:padding="@dimen/activity_vertical_margin"/>
+    <Button
+        android:id="@+id/button_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textColor="@android:color/white"
+        android:background="@color/LimeGreen"
+        android:padding="@dimen/activity_vertical_margin"/>
 
+    <Button
+        android:id="@+id/button_forgotpwd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textColor="@android:color/white"
+        android:background="@color/LimeGreen"
+        android:padding="@dimen/activity_vertical_margin"/>
 </LinearLayout>

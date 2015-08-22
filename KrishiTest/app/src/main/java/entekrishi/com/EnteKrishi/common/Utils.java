@@ -15,21 +15,24 @@ public class Utils {
     public static final String BASE_URL= "http://www.entekrishi.com/mobile";
     public static final String LOGIN_URL = "/login/";
     public static final String CHECK_SESSION_URL = "/check/";
-    public static final String NOTIFICATION_LIST_URL = "/notification/";
+    public static final String NOTIFICATION_LIST_URL = "/notification";
     /// for the constatnat check
     public static final String LOGIN_SUCCESS = "Login Success";
     public static final String PULL_NOTIFY_SUCCESS = "Success";
-    public static final String TOKEN_SUCCESS = "Token ";//Token not exist
 
     //message titles
     public static final String MSG_TITLE = "EnteKrishi";
     public static final String MSG_NO_INTERNET = "You are not connected to Internet. Please try later.";
+    public static final String MSG_NO_NOTIFICATIONS = "You have no notifications.";
+    public static final String MSG_LOGIN_AGAIN = " Please login again.";
     ///WebView
 
     public static final String HOME_URL = "http://www.entekrishi.com/";
     public static final String SEARCH_URL = "http://www.entekrishi.com/advanced/";
     public static final String ALL_PRODUCTS__URL = "http://www.entekrishi.com/listing/";
 
+    public static final String SIGN_UP_URL = "http://www.entekrishi.com/signup/";
+    public static final String FORGOT_URL = "http://www.entekrishi.com/password/";
     // for list view
 
     public static final String KEY_TITLE = "title";
