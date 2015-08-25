@@ -3,6 +3,7 @@ package entekrishi.com.EnteKrishi.common;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -49,16 +50,22 @@ public class Utils {
     }
 
     public static String getFormatedTime(String dateString, String format) {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-        Date convertedDate = null;
-        try {
-            convertedDate = dateFormat.parse(dateString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        Log.i(".EnteKrishi", "dateString = " + dateString);
+        if (dateString != null) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            Date convertedDate = null;
+            try {
+                convertedDate = dateFormat.parse(dateString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
 
-        SimpleDateFormat newFormat = new SimpleDateFormat(format);
-        return newFormat.format(convertedDate);
+            if (convertedDate != null) {
+                SimpleDateFormat newFormat = new SimpleDateFormat(format);
+                return newFormat.format(convertedDate);
+            }
+        }
+        return "";
     }
 
 }

@@ -77,6 +77,15 @@
         android:id="@+id/plistView"
         android:layout_above="@id/tabs"
         android:visibility="gone"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@android:color/black"
+        android:text="No Notifications Yet!"
+        android:id="@android:id/empty"
+        android:gravity="center_horizontal"
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
     <WebView
         android:id="@+id/webViewHome"

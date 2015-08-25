@@ -12,9 +12,11 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import entekrishi.com.EnteKrishi.Rest.OnPostExecuteListener;
 import entekrishi.com.EnteKrishi.Rest.RestApi;
+import entekrishi.com.EnteKrishi.common.InfiniteScrollListener;
 import entekrishi.com.EnteKrishi.common.NetworkListener;
 import entekrishi.com.EnteKrishi.common.Utils;
 import entekrishi.com.EnteKrishi.model.Data;
@@ -30,7 +32,9 @@ public class HomeTab extends Activity implements View.OnClickListener,OnPostExec
 
     private TextView btn_search, btn_notifications, btn_all_products, badge;
     private ProgressBar mProgressBar;
-    private boolean isNotifyTab;
+    private boolean isNotifyTab, mPullRequired = true;
+    private List<Product> mProducts;
+    private int mCurrentPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +49,7 @@ public class HomeTab extends Activity implements View.OnClickListener,OnPostExec
         wv.loadUrl(Utils.HOME_URL);
 
         prodList = (ListView) findViewById(R.id.plistView);
+        prodList.setEmptyView(findViewById(android.R.id.empty));
         btn_search = (TextView) findViewById(R.id.btnSearch);
         btn_notifications = (TextView) findViewById(R.id.btnNotify);
         btn_all_products = (TextView) findViewById(R.id.btnAllproducts);
@@ -52,10 +57,8 @@ public class HomeTab extends Activity implements View.OnClickListener,OnPostExec
         btn_search.setOnClickListener(this);
         btn_notifications.setOnClickListener(this);
         btn_all_products.setOnClickListener(this);
-//        prodList.setOnItemClickListener(this);
 
         // default - search
-        pullNotfications();
         selectButton(R.id.btnSearch);
     }
     @Override
@@ -89,38 +92,62 @@ public class HomeTab extends Activity implements View.OnClickListener,OnPostExec
         wv.setVisibility(id != R.id.btnNotify ? View.VISIBLE : View.GONE);
         switch (id) {
             case R.id.btnSearch:
+                mProgressBar.setVisibility(View.VISIBLE);
                 wv.loadUrl(Utils.SEARCH_URL);
                 break;
             case R.id.btnNotify:
+                mProgressBar.setVisibility(View.GONE);
                 isNotifyTab = true;
                 prodList.setOnItemClickListener(this);
-                pullNotfications();
+                prodList.setOnScrollListener(new InfiniteScrollListener() {
+                    @Override
+                    public void loadMore(int page, int totalItemsCount) {
+                        pullNotfications(++mCurrentPage);
+                    }
+                });
+                if (mCurrentPage == 0)
+                    pullNotfications(++mCurrentPage);
                 break;
             case R.id.btnAllproducts:
+                mProgressBar.setVisibility(View.VISIBLE);
                 wv.loadUrl(Utils.ALL_PRODUCTS__URL);
                 break;
         }
     }
 
-    private void pullNotfications() {
-        RestApi api = new RestApi(this);
-        api.setMessage(isNotifyTab ? "Getting latest notifications..." : null);
-        api.setPostExecuteListener(this);
-        String urlCall = Utils.BASE_URL + Utils.NOTIFICATION_LIST_URL + "?token=" + Data.getInstance().getToken().toString() + "&page=1";
-        api.get(urlCall, Utils.NOTIFICATION_LIST_URL);
+    private void pullNotfications(int page) {
+        if (mPullRequired) {
+            RestApi api = new RestApi(this);
+            api.setMessage(isNotifyTab ? "Getting latest notifications..." : null);
+            api.setPostExecuteListener(this);
+            String urlCall = Utils.BASE_URL + Utils.NOTIFICATION_LIST_URL + "?token=" + Data.getInstance().getToken().toString() + "&page=" + page;
+            api.get(urlCall, Utils.NOTIFICATION_LIST_URL);
+        }
     }
 
     public void onSuccess(ModelClassMapper model) {
         NotificationRsp response = (NotificationRsp)model;
         if (response.msg.toString().equalsIgnoreCase(Utils.PULL_NOTIFY_SUCCESS)) {
-            ArrayList<Product> productlist = response.listofProducts;
+            if (response.listofProducts != null && response.listofProducts.isEmpty()) {
+                mPullRequired = false;
+                return;
+            }
+
+            if (mProducts == null)
+                mProducts = new ArrayList<>();
+            mProducts.addAll(response.listofProducts);
             if (Integer.parseInt(response.unread)==0) {
                 Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_NO_NOTIFICATIONS, null);
             }
 
             if (isNotifyTab) {
-                adapter = new ProductListAdapter(this, productlist);
-                prodList.setAdapter(adapter);
+                if (adapter != null) {
+                    adapter.setItems(mProducts);
+                    adapter.notifyDataSetChanged();
+                } else {
+                    adapter = new ProductListAdapter(this, mProducts);
+                    prodList.setAdapter(adapter);
+                }
             }
             updateCount(response.unread);
         } else {

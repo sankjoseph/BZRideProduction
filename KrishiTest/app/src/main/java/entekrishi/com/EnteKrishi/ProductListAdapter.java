@@ -1,6 +1,7 @@
 package entekrishi.com.EnteKrishi;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
@@ -19,13 +20,18 @@ import entekrishi.com.EnteKrishi.model.Product;
  */
 public class ProductListAdapter extends BaseAdapter {
     private Activity activity;
-    private ArrayList<Product> data;
+    private List<Product> data;
     private static LayoutInflater inflater=null;
-    public ProductListAdapter(Activity a, ArrayList<Product>  d) {
+    public ProductListAdapter(Activity a, List<Product> d) {
         activity = a;
         data=d;
         inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
+
+    public void setItems(List<Product> items) {
+        data = items;
+    }
+
     @Override
     public int getCount() {
         return data.size();

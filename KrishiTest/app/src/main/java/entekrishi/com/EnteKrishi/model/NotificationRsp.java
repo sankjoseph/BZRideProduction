@@ -13,7 +13,7 @@ public class NotificationRsp extends ModelClassMapper  {
     public String count;
     public String unread;
     @SerializedName("new")
-    public char isNew;
+    public int isNew;
     @SerializedName("items")
     public ArrayList<Product> listofProducts;
     //public ProductListing listofProducts;

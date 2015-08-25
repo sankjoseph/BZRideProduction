@@ -57,11 +57,6 @@ public class RestApi {
                 Reader reader = Api.getData(mUrl);
                 if (reader != null) {
                     model = new GsonBuilder().create().fromJson(reader,  ModelClassMapper.getModelClass(mKey));
-                   /* if (mKey.toString().equals(Utils.NOTIFICATION_LIST_URL))
-                    {
-                         ArrayList<Product> productstList = new ArrayList<Product>();
-                        JSONObject objJson= new JSONObject();
-                    }*/
                     try {
                         reader.close();
                     } catch (IOException e) {
