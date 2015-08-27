@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="light_blue_holo">#4ac1cf</color>
+    <color name="dark_blue_holo">#3aa9b5</color>
+    <color name="light_gray">#ededed</color>
+    <color name="header_gray">#e3e3e3</color>
+    <color name="wine_red">#cc5e70</color>
+</resources>
