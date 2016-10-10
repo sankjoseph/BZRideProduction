@@ -1,0 +1,41 @@
+-------DB
+export from UAT and run for Production
+Run DB script for production DB SQL
+----------------------------------Code web service
+remove test php files from folder
+BASE URL change
+DB name and username/pwd
+Stripe production keys (secret and public)
+BrainTree production keys (secret and public) if used in any piece
+----------------------------------Code web site page
+nil need change in service url used inside
+--------------------------------Server
+Folder Production in site
+Upload all from a zip
+--------------------------------App
+GCM KEY ensure
+Production MAPS KEY (if prvided by keychain)
+Version number
+Service  URL
+-------------------------
+Sytenm update srvice handling (cron) for handling requesst
+later shceduel service
+----------------------------------QA
+Qucik test driver reg
+Qucik test rider reg
+Login both
+create rideraccept ride
+Start Ride
+current ride (both driver and rider)
+End ride
+Ride history - (both driver and rider)
+menu update profile rider
+menu update license,card,vehcile,reg,insurance driver
+menu update Version
+menu contact
+menu contact rider / driver
+
+ArriveRide.php?rideRequestId=26&token=qZetl6WjkqOVnqGe
+
+
+

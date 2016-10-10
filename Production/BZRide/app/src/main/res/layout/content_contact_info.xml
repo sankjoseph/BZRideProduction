@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="#f03030"
+    android:orientation="vertical"
+    android:layout_alignParentTop="true">
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CONTACT US"
+        android:textColor="#ffffff"
+        android:textAlignment="textStart"
+        android:layout_marginLeft="25dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp" />
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Need to help creating your account, or have problem with your ride / service, we are available 24x7. You can contact us directly on the number provided or send us an email with details. All correspondence / questions will be answered within 48-72 hours."
+        android:textColor="#ffffff"
+        android:textAlignment="textStart"
+        android:layout_marginLeft="25dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp" />
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="For Drivers: - send us an email to partner@bzride.com."
+        android:textColor="#ffffff"
+        android:textAlignment="textStart"
+        android:layout_marginLeft="25dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp" />
+    <TextView android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="For Riders: - send us an email to rider@bzride.com."
+        android:textColor="#ffffff"
+        android:textAlignment="textStart"
+        android:layout_marginLeft="25dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="20dp" />
+
+    <Button android:layout_width="190dp"
+        android:id="@+id/btnContactDone"
+        android:layout_height="38dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="Done"
+        android:textColor="#fff"
+        android:textSize="13dp"
+        android:background="#2683c2"/>
+
+</LinearLayout>

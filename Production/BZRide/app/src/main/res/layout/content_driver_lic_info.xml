@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView2"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ED1C24"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="#e8e8e7"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BZRIDE"
+                android:textColor="#2582C5"
+                android:textAlignment="center"
+                android:layout_marginLeft="25dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
+
+
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/txtlicensenumber"
+                android:hint="license number"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/txtstatelicenseissued"
+                android:hint="state issued"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/txtdatelicenseissued"
+                android:hint="date of issue"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/txtdatelicenseexpiry"
+                android:hint="date of Expiry"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="441dp"
+            android:orientation="vertical">
+            <Button android:layout_width="190dp"
+                android:id="@+id/btnLicDone"
+                android:layout_height="38dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Done"
+                android:textColor="#fff"
+                android:textSize="13dp"
+                android:background="#2683c2"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

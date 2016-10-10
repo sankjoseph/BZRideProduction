@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView2"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="#ED1C24"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="48dp"
+            android:background="#e8e8e7"
+            android:orientation="horizontal"
+            android:layout_alignParentTop="true">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BZRIDE - Card Details"
+                android:textColor="#2582C5"
+                android:textAlignment="center"
+                android:layout_marginLeft="25dp"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginBottom="30dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal"
+                    android:weightSum="1"
+                    android:id="@+id/radioGroupCardType">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Credit Card"
+                        android:id="@+id/radioButtonCC"
+                        android:checked="true" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:text="Debit card"
+                        android:id="@+id/radioButtonDC"
+
+                        android:checked="false" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="10dp"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="20dp"
+                    android:weightSum="1"
+                    android:id="@+id/radioGroupVendor">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Master Card"
+                        android:id="@+id/radioButtonMC"
+                        android:layout_below="@+id/radioButton"
+                        android:checked="true" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="VISA"
+                        android:id="@+id/radioButtonVISA"
+                        android:layout_below="@+id/radioButtonMC"
+                        android:checked="false" />
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Amex"
+                        android:id="@+id/radioButtonAmex"
+                        android:layout_below="@+id/radioButtonVISA"
+                        android:checked="false" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/txtCardDetailsNumber"
+                android:hint="card number"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="5dp"/>
+
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="billing address1"
+                android:id="@+id/txtCardDetailsAddress1"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/txtCardDetailsAddress2"
+                android:hint="billing address2"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/CardDetailsCity"
+                android:hint="City"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/CardDetailsState"
+                android:hint="State"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/CardDetailsgZip"
+                android:hint="Zip"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/txtCardDetailsExpMonth"
+                android:hint="expiry month"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:id="@+id/txtCardDetailsExpYear"
+                android:hint="expiry year"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:layout_marginTop="15dp"/>
+
+
+            <EditText android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:hint="CVV"
+                android:id="@+id/txtCardDetailsCVV"
+                android:background="#f3f3f3"
+                android:paddingLeft="5dp"
+                android:inputType="textPassword"
+                android:layout_marginTop="15dp"/>
+
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="fill_parent"
+            android:layout_height="130dp"
+            android:orientation="vertical">
+            <Button android:layout_width="190dp"
+                android:layout_height="38dp"
+                android:id="@+id/btnCardDetailsDone"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="16dp"
+                android:text="Done"
+                android:textColor="#fff"
+                android:textSize="13dp"
+                android:background="#2683c2"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+</ScrollView>

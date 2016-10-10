@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single" android:title = "Update">
+    </group>
+    <item android:title="Menu">
+        <menu>
+            <item android:id="@+id/nav_driver_profile"
+                android:title="Profile" />
+            <item android:id="@+id/nav_driver_bankinfo"
+                android:title="Bank Details" />
+            <item android:id="@+id/nav_driver_cardinfo"
+                android:title="Card Details" />
+            <item android:id="@+id/nav_driver_ride_cancel"
+                android:title="Cancel Ride" />
+            <item android:id="@+id/nav_driver_ride_active"
+                android:title="Contact Rider" />
+        </menu>
+    </item>
+    <item android:title="Support">
+        <menu>
+            <item android:id="@+id/nav_driver_contact"
+                android:title="Contact" />
+            <item android:id="@+id/nav_driver_request_ride"
+                android:title="Request" />
+            <item android:id="@+id/nav_driver_about"
+                android:title="About BZRide 1.0" />
+        </menu>
+    </item>
+</menu>
