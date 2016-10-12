@@ -126,7 +126,7 @@ $pickUpCharge = 0.95; // pick up charge
 // find distance
 $distancetraveledmi = distanceCalculation($ActualStartLat,$ActualStartLong,$ActualEndLat,$ActualEndLong,'mi');
 
-if (distancetraveledmi >3 )// greater than 3 miles
+if (distancetraveledmi >4 )// greater than 4 miles
 {
 	$rateforDistanceCents = $distancetraveledmi * 0.85; //dollar//0.85 per mile
 }
@@ -135,7 +135,7 @@ if (distancetraveledmi >3 )// greater than 3 miles
 $timetakenminutes  = FindTimeDiff($ActualRideDateTimeStart,$ActualRideDateTimeEnd);
 //$timetakenminutes = round(abs($ActualRideDateTimeEnd - $ActualRideDateTimeStart) / 60,2);
 
-if (distancetraveledmi >3 )// greater than 3 miles consider time also
+if (distancetraveledmi >4 )// greater than 4 miles consider time also
 {
 	// fare time
 	$rateForTimeCents = $timetakenminutes * 0.14;//dollar//0.14 dollar per minute
@@ -156,11 +156,11 @@ if (isweekend ($ActualRideDateTimeStart))
 	$travelFare = $travelFare + ($travelFare *0.3);
 }
 
-if (distancetraveledmi <=3 )
+if (distancetraveledmi <=4 )
 {
 	$pickUpCharge = 0.0;// not applicable for short distance
 }
-if (distancetraveledmi >3 )// greater than 3 miles basefare not appicable
+if (distancetraveledmi >4 )// greater than 4 miles basefare not appicable
 {
 	$baseFare = 0.0;
 }
