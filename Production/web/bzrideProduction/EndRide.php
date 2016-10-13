@@ -205,7 +205,7 @@ if (!$result) {
 	showError(mysql_error());
 }
 $rowToken = mysql_fetch_array($result);
-$CardToken = $rowToken["CardToken"];
+$CustomerId = $rowToken["CardToken"];//$CustomerId as token
 
 // charge card for the amount usinhg card token todo
 // last ride will have fare details for user
@@ -213,7 +213,7 @@ $CardToken = $rowToken["CardToken"];
 $bz_req_url = $BASE_URL . 'charge.php';
 $ch =  curl_init();
 
-$postData = http_build_query(array('token' => $CardToken,	
+$postData = http_build_query(array('token' => $CustomerId,	
 					'amount' => $finalFare,//dollar
 					'requestId' => $requestId,
 					'currency' => 'usd'	));

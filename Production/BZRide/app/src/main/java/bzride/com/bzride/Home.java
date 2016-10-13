@@ -621,7 +621,7 @@ public class Home extends AppCompatActivity /*FragmentActivity*/  implements OnM
                 return;
             }
             String countryCode =  getCountryCode(m_latLng);
-            if (countryCode.equals("US"))
+            //if (countryCode.equals("US"))
             {
                 final CharSequence[] items = { "Automatically", "Manually",
                         "Cancel" };
@@ -652,10 +652,10 @@ public class Home extends AppCompatActivity /*FragmentActivity*/  implements OnM
                 });
                 builder.show();
             }
-            else
+            /*else
             {
                 Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_NO_BZRIDE, null);
-            }
+            }*/
         }
         else{
             Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_NO_INTERNET, null);

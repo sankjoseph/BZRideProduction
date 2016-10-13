@@ -196,6 +196,17 @@ public class usercarddetails extends AppCompatActivity implements View.OnClickLi
             int b =0;
         }
 
+        // other details
+        myCardData.cardNumber = txtCardDetailsNumber.getText().toString();
+        myCardData.cardBillingAddress1 = txtCardDetailsAddress1.getText().toString();
+        myCardData.cardBillingAddress2 = txtCardDetailsAddress2.getText().toString();
+        myCardData.cardBillingCity = txtCardDetailsCity.getText().toString();
+        myCardData.cardBillingState = txtCardDetailsState.getText().toString();
+        myCardData.cardBillingZip = txtCardDetailsZip.getText().toString();
+        myCardData.cardExpiryMonth = txtCardDetailsExpMonth.getText().toString();
+        myCardData.cardExpiryYear = txtCardDetailsExpYear.getText().toString();
+        myCardData.cardCVV = txtCardDetailsCVV.getText().toString();
+
 
         new Stripe().createToken(card, Utils.STRIPE_RUNNING_KEY,
                 new TokenCallback() {
@@ -205,6 +216,9 @@ public class usercarddetails extends AppCompatActivity implements View.OnClickLi
 
                         myCardData.cardToken = tokenString;
                         Log.d("Stripesample", tokenString);
+
+                        onGetToken();
+
                     }
 
                     public void onError(Exception error) {
@@ -216,16 +230,10 @@ public class usercarddetails extends AppCompatActivity implements View.OnClickLi
                     }
                 }
         );
-        // other details
-        myCardData.cardNumber = txtCardDetailsNumber.getText().toString();
-        myCardData.cardBillingAddress1 = txtCardDetailsAddress1.getText().toString();
-        myCardData.cardBillingAddress2 = txtCardDetailsAddress2.getText().toString();
-        myCardData.cardBillingCity = txtCardDetailsCity.getText().toString();
-        myCardData.cardBillingState = txtCardDetailsState.getText().toString();
-        myCardData.cardBillingZip = txtCardDetailsZip.getText().toString();
-        myCardData.cardExpiryMonth = txtCardDetailsExpMonth.getText().toString();
-        myCardData.cardExpiryYear = txtCardDetailsExpYear.getText().toString();
-        myCardData.cardCVV = txtCardDetailsCVV.getText().toString();
+
+    }
+    public void onGetToken()
+    {
 
         if (Option.equals("edit")) {
 

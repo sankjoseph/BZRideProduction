@@ -4,7 +4,7 @@ include("stripe/init.php");
 
 session_start();
 
-$token = $_REQUEST['token'];
+$CustomerId = $_REQUEST['token'];
 $currency = $_REQUEST['currency'];
 $amount = $_REQUEST['amount'] *100;//cents
 $requestRefNumber = $_REQUEST['requestId'];
@@ -14,7 +14,7 @@ try {
 	 \Stripe\Stripe::setApiKey($STRIPE_RUNNING_SECRET_KEY); //Replace with your Secret Key
 	 
 	if (defined('TEST_CARD')) { 
-	  $result = \Stripe\Token::create(
+	  /*$result = \Stripe\Token::create(
                     array(
                         "card" => array(
                             "number" => "4242424242424242",
@@ -24,16 +24,21 @@ try {
                         )
                     )
                 );
-		$token = $result['id'];
+		$CustomerId = $result['id'];*/
 	}
 	
 	$description = "Charge for BZRide Inc. Ref number ".$requestRefNumber;
+    //charge using the customer id created from the card token earlier
+    
+    LOGDATA ('charging for customer id ->'.$CustomerId);
+    
 	$charge = \Stripe\Charge::create(array(
 	"amount" => $amount,
 	"currency" => $currency,
-	"card" => $token,
+	"customer" => $CustomerId,
 	"description" => $description
 	));
+    
 	$data = array();
 	$data["status"] ="S";
 	$data["info"] = "charging successful";
