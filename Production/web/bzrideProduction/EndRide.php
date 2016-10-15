@@ -58,6 +58,7 @@ if (!$conn) {
 } 
 else
 {  
+$shortDistance = 4;//4 miles
 //basic driver details
 $requestId = $_REQUEST['rideRequestId'];
 $ActualEndLat = $_REQUEST['ActualEndLat'];
@@ -125,8 +126,10 @@ $rateforDistanceCents = 0.0;
 $pickUpCharge = 0.95; // pick up charge
 // find distance
 $distancetraveledmi = distanceCalculation($ActualStartLat,$ActualStartLong,$ActualEndLat,$ActualEndLong,'mi');
+    
+LOGDATA('distance travelled in miles '.$distancetraveledmi);
 
-if (distancetraveledmi >4 )// greater than 4 miles
+if ($distancetraveledmi >4 )// greater than 4 miles
 {
 	$rateforDistanceCents = $distancetraveledmi * 0.85; //dollar//0.85 per mile
 }
@@ -134,8 +137,12 @@ if (distancetraveledmi >4 )// greater than 4 miles
 // find time difference
 $timetakenminutes  = FindTimeDiff($ActualRideDateTimeStart,$ActualRideDateTimeEnd);
 //$timetakenminutes = round(abs($ActualRideDateTimeEnd - $ActualRideDateTimeStart) / 60,2);
+LOGDATA('time travelled in minutes '.$timetakenminutes);
+LOGDATA('time start '.$ActualRideDateTimeStart);
+LOGDATA('time end '.$ActualRideDateTimeEnd);
 
-if (distancetraveledmi >4 )// greater than 4 miles consider time also
+    
+if ($distancetraveledmi >$shortDistance )// greater than 4 miles consider time also
 {
 	// fare time
 	$rateForTimeCents = $timetakenminutes * 0.14;//dollar//0.14 dollar per minute
@@ -143,34 +150,43 @@ if (distancetraveledmi >4 )// greater than 4 miles consider time also
 
 // calculate rate for above and fit in table
 $travelFare = ($rateforDistanceCents + $rateForTimeCents); //dollar
-
+LOGDATA('normal ride fare '.$travelFare);
 // for night drive between 10- 6 
 if (isNightRide($ActualRideDateTimeStart))
 {
-	$travelFare = $travelFare + ($travelFare *0.3);
+	$nightCharge =  ($travelFare *0.3);
+    LOGDATA('night ride 10 to 6 '.$nightCharge);
 }
 
 // for friday saturday sunday
 if (isweekend ($ActualRideDateTimeStart))
 {
-	$travelFare = $travelFare + ($travelFare *0.3);
+	$weekEndCharge = ($travelFare *0.3);
+    LOGDATA('week end days '.$weekEndCharge);
 }
 
-if (distancetraveledmi <=4 )
+$travelFare = $travelFare + $nightCharge + $weekEndCharge;
+        
+if ($distancetraveledmi <= $shortDistance )
 {
 	$pickUpCharge = 0.0;// not applicable for short distance
 }
-if (distancetraveledmi >4 )// greater than 4 miles basefare not appicable
+if ($distancetraveledmi > $shortDistance )// greater than 4 miles basefare not appicable
 {
 	$baseFare = 0.0;
 }
 $finalFare = $pickUpCharge + $baseFare + $travelFare;//dollar
 // sum total fare and update in table
 
-
+LOGDATA('$rateforDistanceCents '.$rateforDistanceCents);
+LOGDATA('$rateForTimeCents '.$rateForTimeCents);
+LOGDATA('$pickUpCharge '.$pickUpCharge);
+LOGDATA('$baseFare '.$baseFare);
+LOGDATA('$travelFare '.$travelFare);
+LOGDATA('summed $finalFare '.$finalFare);
 $finalFare = round( $finalFare, 2, PHP_ROUND_HALF_UP);
 $FaretoCompany = $finalFare;
-
+LOGDATA('rounded $finalFare '.$finalFare);
 $finalFare = $finalFare + $saftyandTrustFee;
 
 $FareCommission = $FaretoCompany * 0.20;// 20 percent commission

@@ -17,6 +17,40 @@ $token = $_REQUEST['token'];
 
 LOGDATA($token);
 $driverID = GetIdByCheckforTimeout($token);
+   
+$selectSQL = "select status,LastModifiedDate from bztbl_riderequests where Id = " .$requestId ;// LastModifiedDate is the date where he set arrived
+LOGDATA($selectSQL);
+$resultSQL = mysql_query($selectSQL,$conn);
+if (!$resultSQL) {
+	showError(mysql_error());
+}    
+
+$num_rows = mysql_num_rows($resultSQL);
+LOGDATA($num_rows);
+if ( $num_rows > 0) {
+	$rowIn = mysql_fetch_array($resultSQL);
+	$status = $rowIn["status"];//status
+    $LastModifiedDate = $rowIn["LastModifiedDate"];//LastModifiedDate
+    if ($status != 'AR')
+    {
+        showError("Cannot cancel the request as the request is not in arrived state.");
+    }
+    else
+    {
+        $current = date('Y/m/d H:i:s');
+        $minutesleft = FindTimeDiff($LastModifiedDate,$current);
+        LOGDATA('minutes after arriving->'.$minutesleft);
+        if ( $minutesleft < 5)
+        {
+            showError("Cannot cancel the request before 5 minutes after arriving.");
+        }
+    }
+}
+else
+{
+    showError("Could not find matching ride request.");
+}
+    
 //set as suspended
 $requestSQL = "UPDATE bztbl_riderequests SET status = 'S' where Id = " .$requestId ;
 LOGDATA($requestSQL);
@@ -96,7 +130,7 @@ if (preg_match("/Could not/i", $result)) {
 }
 else
 {
-	LLOGDATA('notify rider for cancel ride failed');
+	LOGDATA('notify rider for cancel ride failed');
 }
 $data = array();
 $data["status"] ="S";

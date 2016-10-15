@@ -2,6 +2,7 @@
 //define("DEBUG_L","Console");
 define("DEBUG_F","File");
 //define("TEST_CARD","CARD");
+define("CHARGE_CARD","YES");
 define('SECRET_KEY', "zxcvbnmasdfghjkl");//16 digit key
 
 $ANDROID_GCM_KEY = 'AIzaSyDpkMnJYFvd41lI7Bz8IrTZTw6V8WNOm40';
@@ -27,7 +28,7 @@ function isweekend($date){
 
 function FindTimeDiff($start,$end = false) { 
  	
-	$startTime = date("H:i:s",strtotime($start ));
+	/*$startTime = date("H:i:s",strtotime($start ));
 	$endTime = date("H:i:s",strtotime($end ));
 	
 
@@ -37,6 +38,11 @@ function FindTimeDiff($start,$end = false) {
 	
 	$min = $hour * 60 ;
    
+    return  $min; */
+    
+    $to_time = strtotime($end);
+    $from_time = strtotime($start);
+    $min = round(abs($to_time - $from_time) / 60,2);
     return  $min; 
 } 
 

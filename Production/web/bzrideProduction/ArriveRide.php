@@ -22,7 +22,7 @@ LOGDATA($token);
 $driverID = GetIdByCheckforTimeout($token);
 
 // arrived R
-$updateSQL = "UPDATE bztbl_riderequests SET status = 'AR' where Id = " .$requestId ;
+$updateSQL = "UPDATE bztbl_riderequests SET status = 'AR', LastModifiedDate = now() where Id = " .$requestId ;
 
 // update time for table
 LOGDATA($updateSQL);

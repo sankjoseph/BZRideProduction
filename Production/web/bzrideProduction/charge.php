@@ -31,13 +31,15 @@ try {
     //charge using the customer id created from the card token earlier
     
     LOGDATA ('charging for customer id ->'.$CustomerId);
-    
-	$charge = \Stripe\Charge::create(array(
-	"amount" => $amount,
-	"currency" => $currency,
-	"customer" => $CustomerId,
-	"description" => $description
-	));
+    if (defined('CHARGE_CARD')) { 
+            LOGDATA ('charging now');
+        	$charge = \Stripe\Charge::create(array(
+            "amount" => $amount,
+            "currency" => $currency,
+            "customer" => $CustomerId,
+            "description" => $description
+            ));
+    }
     
 	$data = array();
 	$data["status"] ="S";
