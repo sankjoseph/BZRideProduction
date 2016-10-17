@@ -250,7 +250,18 @@ public class HomeDriver extends AppCompatActivity  implements OnMapReadyCallback
                         {
                             public void onClick(DialogInterface dialog, int id)
                             {
-                                CancelAction();
+
+                                if (bArrived)
+                                {
+                                    CancelAction();
+                                }
+                                else // accepted but driver want to cancel
+                                {
+                                    if  (!Utils.isEmpty(BZAppManager.getInstance().currentRideRequestId)){
+                                        CancelActionNOCharge();
+                                    }
+                                }
+
                             }
                         })
                         .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -400,6 +411,28 @@ public class HomeDriver extends AppCompatActivity  implements OnMapReadyCallback
         } else {
             Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_NO_INTERNET, null);
         }
+    }
+
+    private void CancelActionNOCharge() {
+
+        if (NetworkListener.isConnectingToInternet(getApplicationContext())) {
+            BZRESTApiHandler api = new BZRESTApiHandler(this);
+            api.setMessage("Cancelling ride...");
+            api.setPostExecuteListener(this);
+
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+            String usertoken = sharedPreferences.getString(QuickstartPreferences.USER_TOKEN, null);
+
+            if (BZAppManager.getInstance().isDriver == true) {
+                String urlCall = Utils.BASE_URL + Utils.CANCEL_RIDE_NOCHARGE_URL ;
+                String params =  "token="+ usertoken + "&rideRequestId=" + BZAppManager.getInstance().currentRideRequestId;
+                api.putDetails(urlCall, Utils.CANCEL_RIDE_NOCHARGE_URL, params);
+            }
+
+        } else {
+            Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_NO_INTERNET, null);
+        }
+
     }
     private void CancelAction() {
 

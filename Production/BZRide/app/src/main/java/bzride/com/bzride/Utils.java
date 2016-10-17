@@ -70,6 +70,7 @@ public class Utils {
 
     public static final String ARRIVE_RIDE_URL = "/ArriveRide.php";
     public static final String CANCEL_RIDE_URL = "/CancelRide.php";
+    public static final String CANCEL_RIDE_NOCHARGE_URL = "/CancelRideNoCharge.php";
 
     public static final String REGISTER_SUCCESS = "Login Success";
 

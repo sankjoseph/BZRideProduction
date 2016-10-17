@@ -2,6 +2,24 @@
 include("includes/db.php");
 include("includes/common.php");
 
+function GetDrivingDistance($lat1, $lat2, $long1, $long2)
+{
+    $url = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=".$lat1.",".$long1."&destinations=".$lat2.",".$long2."&mode=driving&language=pl-PL";
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    curl_setopt($ch, CURLOPT_PROXYPORT, 3128);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    $response_a = json_decode($response, true);
+    $dist = $response_a['rows'][0]['elements'][0]['distance']['value'];
+    $time = $response_a['rows'][0]['elements'][0]['duration']['value'];
+
+    return ceil($dist /1000 * 0.62137);
+    //return array('distance' => $dist, 'time' => $time);
+}
 
 function distanceCalculationGoogleAPI($point1_lat, $point1_long, $point2_lat, $point2_long, $unit = 'km', $decimals = 2) {
 	
@@ -125,7 +143,11 @@ $rateForTimeCents = 0.0;
 $rateforDistanceCents = 0.0;
 $pickUpCharge = 0.95; // pick up charge
 // find distance
-$distancetraveledmi = distanceCalculation($ActualStartLat,$ActualStartLong,$ActualEndLat,$ActualEndLong,'mi');
+/*$distancetraveledmi = distanceCalculation($ActualStartLat,$ActualStartLong,$ActualEndLat,$ActualEndLong,'mi');*/
+// old code
+
+$distancetraveledmi = GetDrivingDistance($ActualStartLat,$ActualEndLat,$ActualStartLong,$ActualEndLong);
+
     
 LOGDATA('distance travelled in miles '.$distancetraveledmi);
 

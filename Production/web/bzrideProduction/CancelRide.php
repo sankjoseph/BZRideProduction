@@ -3,7 +3,7 @@ include("includes/db.php");
 include("includes/common.php");
 
 /////
-LOGDATA("Starting ride");
+LOGDATA("cancelling ride with charge- No show");
 
 // Check connection
 if (!$conn) {
