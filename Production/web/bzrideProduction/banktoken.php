@@ -6,7 +6,7 @@ session_start();
 $token = $_REQUEST['token'];
 
 try {
-		\Stripe\Stripe::setApiKey("sk_test_2rCnQT2VGQl5ndFbgfEas7g2");
+		\Stripe\Stripe::setApiKey($STRIPE_RUNNING_SECRET_KEY); //Replace with your Secret Key
 
 		$result = \Stripe\Token::create(array(
 		"bank_account" => array(

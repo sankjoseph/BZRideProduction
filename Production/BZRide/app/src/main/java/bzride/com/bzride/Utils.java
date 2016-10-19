@@ -40,7 +40,9 @@ public class Utils {
     public static final String SOMETHING_WENT_WRONG = "OOPs!!! Something went wrong...";
     public static String PlacesTag = "Google Places Auto Complete";
 
-    public static final String BASE_URL= "http://bzride.com/bzrideProduction";
+//    public static final String BASE_URL= "http://bzride.com/bzrideProduction";
+
+    public static final String BASE_URL= "http://bzride.com/bzride";
 
     public static final String RIDE_REQUEST_I_URL = "/CreateRideRequestImmediate.php";
 
