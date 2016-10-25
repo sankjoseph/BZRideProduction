@@ -37,5 +37,22 @@ menu contact rider / driver
 
 ArriveRide.php?rideRequestId=26&token=qZetl6WjkqOVnqGe
 
+-------------------------------------------------- switch between prod/nonprod
+delete from bztbl_driverbankdetails
+delete from bztbl_driverinsurancedetails
+delete from bztbl_driverlicensedetails
+delete from bztbl_drivers
+delete from bztbl_drivervehicledetails
+delete from bztbl_reportedproblems
+delete from bztbl_riderequests
+delete from bztbl_riders
+
+----db.php db 
+name bzride5_bzRide
+-----common.php
+//define("CHARGE_CARD","YES");
+$BASE_URL = 'http://bzride.com/bzride/'; //change when production
+
+
 
 

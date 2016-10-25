@@ -93,7 +93,7 @@ LOGDATA('distance travelled in miles '.$distancetraveledmi);
 
 if ($distancetraveledmi >4 )// greater than 4 miles
 {
-	$rateforDistanceCents = $distancetraveledmi * 0.85; //dollar//0.85 per mile
+	$rateforDistanceCents = $distancetraveledmi * 0.76; //dollar//0.76 per mile
 }
 
 // find time difference
@@ -107,7 +107,7 @@ LOGDATA('time end '.$ActualRideDateTimeEnd);
 if ($distancetraveledmi >$shortDistance )// greater than 4 miles consider time also
 {
 	// fare time
-	$rateForTimeCents = $timetakenminutes * 0.14;//dollar//0.14 dollar per minute
+	$rateForTimeCents = $timetakenminutes * 0.12;//dollar//0.12 dollar per minute
 }
 
 // calculate rate for above and fit in table
