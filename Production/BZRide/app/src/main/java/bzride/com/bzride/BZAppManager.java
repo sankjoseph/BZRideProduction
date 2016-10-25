@@ -69,9 +69,6 @@ public class BZAppManager {
         retData += "&zip=" + bzDriverData.Zip;
 
         retData += "&phone=" + bzDriverData.PhoneNumber;
-        retData += "&dob=" + bzDriverData.dob;
-
-        retData += "&ssn=" + bzDriverData.SSN;
         retData += "&currentlat=" + bzDriverData.currentlat;
         retData += "&currentlong=" + bzDriverData.currentlong;
         retData += "&deviceType=A";

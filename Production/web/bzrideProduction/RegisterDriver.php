@@ -21,12 +21,8 @@ $address2 = getIfSet($_REQUEST['address2']);
 $city = getIfSet($_REQUEST['city']);
 $state = getIfSet($_REQUEST['state']);
 $zip = getIfSet($_REQUEST['zip']);
-$final = getMYSQLDate($_REQUEST['dob']);
 $phone = getIfSet($_REQUEST['phone']);
 LOGDATA($phone);
-LOGDATA($dobin);
-
-$ssn = getIfSet($_REQUEST['ssn']);
 $deviceId = getIfSet($_REQUEST['deviceId']);
 $devicetoken = getIfSet($_REQUEST['devicetoken']);
 $deviceType = getIfSet($_REQUEST['deviceType']);
@@ -58,7 +54,7 @@ if ( $num_rows > 0) {
 									
 // insert driver values in DB
 $driver_details="insert into bztbl_drivers values('', $firstName, $middleName, $lastName, $email, $password,
-									$address1, $address2,$city,$state,$zip, $phone,$final,$ssn, $deviceId,$devicetoken, $deviceType, 1,1,
+									$address1, $address2,$city,$state,$zip, $phone,'','', $deviceId,$devicetoken, $deviceType, 1,1,
 									'A', 0.0,0.0,$cardType, $cardProvider, $cardBillingAddress1,$cardBillingAddress2,$cardBillingCity,$cardBillingState,$cardBillingZip,$cardToken, now(),now())";
 									
 LOGDATA($driver_details);

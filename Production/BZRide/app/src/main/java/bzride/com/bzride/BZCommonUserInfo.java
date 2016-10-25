@@ -16,8 +16,6 @@ public class BZCommonUserInfo {
     public String State;
     public String Zip;
     public String PhoneNumber;
-    public String dob;
-    public String SSN;
     public String DeviceId;
     public String DeviceType;
     public String currentlat;
@@ -37,8 +35,6 @@ public class BZCommonUserInfo {
         City = "";
         State = "";
         Zip = "";
-        dob = "";
-        SSN = "";
         DeviceId = "";
         DeviceType = "";
         currentlat = "";

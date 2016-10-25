@@ -153,27 +153,6 @@ public class registerDriver extends AppCompatActivity implements View.OnClickLis
                 return;
             }
 
-            DOB = (EditText) findViewById(R.id.txtDOB);
-            String dob = ((EditText) findViewById(R.id.txtDOB)).getText().toString();
-            if (Utils.isEmpty(dob)) {
-                Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_DOB_EMPTY, null);
-                return;
-            }
-
-            boolean validDOB = dateValidator.validate(dob);
-            if (!validDOB)
-            {
-                Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_INVALID_DOB, null);
-                return;
-            }
-
-            SSN = (EditText) findViewById(R.id.txtdriverSSN);
-            String ssn = ((EditText) findViewById(R.id.txtdriverSSN)).getText().toString();
-            if (Utils.isEmpty(ssn)) {
-                Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_SSN_EMPTY, null);
-                return;
-            }
-
            if (!validVehicleDetails())
            {
                Utils.showInfoDialog(this, Utils.MSG_TITLE, Utils.MSG_VEHICLE_EMPTY, null);
@@ -210,8 +189,6 @@ public class registerDriver extends AppCompatActivity implements View.OnClickLis
             BZAppManager.getInstance().bzDriverData.Zip = zip.getText().toString();
 
             BZAppManager.getInstance().bzDriverData.PhoneNumber = PhoneNumber.getText().toString();
-            BZAppManager.getInstance().bzDriverData.dob = DOB.getText().toString();
-            BZAppManager.getInstance().bzDriverData.SSN = SSN.getText().toString();
             //call EULA and if accepted start the reg
             Intent myIntent = new Intent(registerDriver.this, EULA.class);
             myIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
