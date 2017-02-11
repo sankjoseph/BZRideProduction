@@ -19,7 +19,7 @@ import com.stripe.android.Stripe.*;
 import com.stripe.android.*;
 import com.stripe.android.model.Card;
 import com.stripe.android.model.Token;
-import com.stripe.exception.AuthenticationException;
+
 
 import org.json.JSONArray;
 import org.json.JSONObject;

@@ -13,13 +13,13 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
-import com.stripe.Stripe;
-import com.stripe.exception.APIConnectionException;
-import com.stripe.exception.APIException;
-import com.stripe.exception.AuthenticationException;
-import com.stripe.exception.CardException;
-import com.stripe.exception.InvalidRequestException;
-import com.stripe.model.Token;
+
+import com.stripe.android.exception.APIConnectionException;
+import com.stripe.android.exception.APIException;
+import com.stripe.android.exception.AuthenticationException;
+import com.stripe.android.exception.CardException;
+import com.stripe.android.exception.InvalidRequestException;
+import com.stripe.android.model.Token;
 
 import java.util.HashMap;
 import java.util.Map;
